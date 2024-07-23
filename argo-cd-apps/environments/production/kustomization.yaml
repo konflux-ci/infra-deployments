@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../konflux-ci/application-api
+  - ../../konflux-ci/build-service
+  - ../../konflux-ci/enterprise-contract
+  - ../../konflux-ci/integration
+  - ../../konflux-ci/rbac
+  - ../../konflux-ci/release
+  - ../../konflux-ci/ui  
+namespace: argocd
+
+patches:
+  - path: production-overlay-patch.yaml
+    target:
+      kind: ApplicationSet
+      version: v1alpha1
