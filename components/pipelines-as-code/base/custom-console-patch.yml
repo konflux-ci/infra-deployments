@@ -1,0 +1,10 @@
+---
+- op: add
+  path: /data/application-name
+  value: Local Konflux
+- op: add
+  path: /data/custom-console-name
+  value: Local Konflux
+- op: add
+  path: /data/custom-console-url
+  value: https://console.redhat.com/application-pipeline
