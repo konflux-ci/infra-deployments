@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # Core manifests
-  - https://github.com/konflux-ci/konflux-ci/konflux-ci/release/core?ref=df1ab193b2b9f6224a4c09a5a2ee1bc0f3a4ae57
+  - https://github.com/konflux-ci/konflux-ci/konflux-ci/release/core?ref=a1541a09cbab822162c0c862a73660955403b2f8
   # CertManager manifests
-  - https://github.com/konflux-ci/konflux-ci/konflux-ci/release/certmanager?ref=df1ab193b2b9f6224a4c09a5a2ee1bc0f3a4ae57
+  - https://github.com/konflux-ci/konflux-ci/konflux-ci/release/certmanager?ref=a1541a09cbab822162c0c862a73660955403b2f8
