@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ui
+  name: cluster-issuer
 spec:
   generators:
     - clusters:
         values:
-          sourceRoot: components/ui
+          sourceRoot: components/cluster-issuer
           environment: staging
           clusterDir: ""
   template:
     metadata:
-      name: ui-{{nameNormalized}}
+      name: cluster-issuer-{{nameNormalized}}
     spec:
       project: default
       source:

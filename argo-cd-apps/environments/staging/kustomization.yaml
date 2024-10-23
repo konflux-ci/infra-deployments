@@ -7,18 +7,18 @@ resources:
   - ../../dependencies/pipelines-as-code  
   - ../../dependencies/tekton-config
   - ../../dependencies/tekton-operator
-  - ../../dependencies/trust-manager
+  - ../../dependencies/trust-manager  
   - ../../konflux-ci/application-api
   - ../../konflux-ci/build-service
   - ../../konflux-ci/enterprise-contract
   - ../../konflux-ci/integration
   - ../../konflux-ci/rbac
   - ../../konflux-ci/release
-  - ../../konflux-ci/ui  
+  - ../../konflux-ci/ui
 namespace: argocd
 
 patches:
-  - path: production-overlay-patch.yaml
+  - path: staging-overlay-patch.yaml
     target:
       kind: ApplicationSet
       version: v1alpha1

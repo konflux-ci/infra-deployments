@@ -1,0 +1,7 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - https://github.com/konflux-ci/konflux-ci/dependencies/keycloak/crd?ref=6cadadb18c8b8c014d60ae9a45e73fded17166ab
+  - https://github.com/konflux-ci/konflux-ci/dependencies/keycloak/deployment?ref=fa491580946a7ae5feac06d6a345248f1787a313
+
