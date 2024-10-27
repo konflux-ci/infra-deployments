@@ -7,6 +7,7 @@ resources:
   - ../../dependencies/pipelines-as-code  
   - ../../dependencies/tekton-config
   - ../../dependencies/tekton-operator
+  - ../../dependencies/tekton-results  
   - ../../dependencies/trust-manager
   - ../../konflux-ci/application-api
   - ../../konflux-ci/build-service
@@ -14,7 +15,6 @@ resources:
   - ../../konflux-ci/integration
   - ../../konflux-ci/rbac
   - ../../konflux-ci/release
-  - ../../konflux-ci/ui  
 namespace: argocd
 
 patches:

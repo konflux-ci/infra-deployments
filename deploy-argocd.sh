@@ -1,5 +1,5 @@
 #!/bin/bash -e
-
+set -ex
 # Deploy Applications to ArgoCD on EKS Cluster
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
