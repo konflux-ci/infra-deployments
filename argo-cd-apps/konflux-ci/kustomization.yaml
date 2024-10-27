@@ -7,3 +7,4 @@ resources:
   - integration
   - rbac
   - release
+  - ui
