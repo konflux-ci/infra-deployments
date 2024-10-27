@@ -15,6 +15,7 @@ resources:
   - ../../konflux-ci/integration
   - ../../konflux-ci/rbac
   - ../../konflux-ci/release
+  - ../../konflux-ci/ui  
 namespace: argocd
 
 patches:
