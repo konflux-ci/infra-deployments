@@ -1,0 +1,5 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - https://github.com/konflux-ci/konflux-ci/dependencies/cert-manager?ref=fa491580946a7ae5feac06d6a345248f1787a313
