@@ -2,13 +2,18 @@
 set -ex
 # Deploy Applications to ArgoCD on EKS Cluster
 
+if [ "$#" -ne 2 ] || ([ "$2" != "production" ] && [ "$2" != "staging" ] ); then
+  echo "Usage: $0 <ArgoCD server> <staging/production>" >&2
+  exit 1
+fi
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 main() {
     verify_permissions || exit $?
-    login_argocd "$@"
+    login_argocd "$1"
     verify_pvc_binding
-    deploy_apps
+    deploy_apps "$2"
 }
 
 verify_permissions() {
@@ -21,11 +26,6 @@ verify_permissions() {
 }
 
 login_argocd() {
-    if [ -z "$1" ]; then
-        echo "No environment provided"
-        exit 1
-    fi
-
     ARGOCD_SERVER=$(echo "$1"|tr '[:upper:]' '[:lower:]')
     argocd login $ARGOCD_SERVER --sso
 }
@@ -65,8 +65,9 @@ check_namespace() {
 }
 
 deploy_apps() {
+    environment=$(echo "$1")
     echo "Deploying applications"
-    kubectl apply -k "${ROOT}/argo-cd-apps/app-of-app-sets/staging"
+    kubectl apply -k "${ROOT}/argo-cd-apps/app-of-app-sets/${environment}"
     while true; do
         if check_namespace "tekton-pipelines" && check_namespace "keycloak"; then
             deploy_tekton_secret
