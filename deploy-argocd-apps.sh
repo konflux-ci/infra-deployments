@@ -1,9 +1,8 @@
 #!/bin/bash -e
 set -ex
-# Deploy Applications to ArgoCD on EKS Cluster
 
-if [ "$#" -ne 2 ] || ([ "$2" != "production" ] && [ "$2" != "staging" ] ); then
-  echo "Usage: $0 <ArgoCD server> <staging/production>" >&2
+if [ "$#" -ne 1 ] || ([ "$1" != "production" ] && [ "$1" != "staging" ] ); then
+  echo "Usage: $0 <staging/production>" >&2
   exit 1
 fi
 
@@ -11,9 +10,8 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 main() {
     verify_permissions || exit $?
-    login_argocd "$1"
     verify_pvc_binding
-    deploy_apps "$2"
+    deploy_apps "$1"
 }
 
 verify_permissions() {
@@ -23,11 +21,6 @@ verify_permissions() {
         echo "Log into the cluster with a user with the required privileges (e.g. kubeadmin) and retry."
         return 1
     fi
-}
-
-login_argocd() {
-    ARGOCD_SERVER=$(echo "$1"|tr '[:upper:]' '[:lower:]')
-    argocd login $ARGOCD_SERVER --sso
 }
 
 verify_pvc_binding(){
