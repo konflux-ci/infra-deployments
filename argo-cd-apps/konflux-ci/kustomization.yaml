@@ -5,6 +5,7 @@ resources:
   - build-service
   - enterprise-contract
   - integration
+  - image-controller
   - rbac
   - release
   - ui

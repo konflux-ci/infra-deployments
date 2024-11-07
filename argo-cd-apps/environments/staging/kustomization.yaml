@@ -6,10 +6,11 @@ resources:
   - ../../dependencies/registry
   - ../../dependencies/cluster-issuer
   - ../../dependencies/keycloak
-  - ../../dependencies/pipelines-as-code  
+  - ../../dependencies/pipelines-as-code
   - ../../dependencies/tekton-config
   - ../../dependencies/tekton-operator
-  - ../../dependencies/tekton-results  
+  - ../../dependencies/tekton-results
+  - ../../konflux-ci/image-controller
   - ../../konflux-ci/application-api
   - ../../konflux-ci/build-service
   - ../../konflux-ci/enterprise-contract
