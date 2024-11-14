@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - ../../dependencies/cert-manager
   - ../../dependencies/trust-manager
-  - ../../dependencies/registry
   - ../../dependencies/cluster-issuer
   - ../../dependencies/keycloak
   - ../../dependencies/pipelines-as-code
