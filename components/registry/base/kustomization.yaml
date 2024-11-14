@@ -1,4 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  - https://github.com/konflux-ci/konflux-ci/dependencies/registry?ref=da8035d7fa906588d74bc1038ffb236db9deb11f
