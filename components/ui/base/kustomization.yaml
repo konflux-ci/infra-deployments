@@ -1,4 +1,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - https://github.com/konflux-ci/konflux-ci/konflux-ci/ui?ref=da8035d7fa906588d74bc1038ffb236db9deb11f
+  - https://github.com/konflux-ci/konflux-ci/konflux-ci/ui?ref=b56d75e2c7b42aaf6c8dd86f092552ca5caeb61c
