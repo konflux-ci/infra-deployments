@@ -41,20 +41,22 @@ deploy_tekton_secret() {
     fi
 }
 
-deploy_keycloak_secret() {
-    if ! kubectl get secret keycloak-db-secret -n keycloak; then
-        local db_password
-        db_password="$(openssl rand -base64 20)"
-        kubectl create secret generic keycloak-db-secret \
-            --namespace=keycloak \
-            --from-literal=POSTGRES_USER=postgres \
-            --from-literal=POSTGRES_PASSWORD="$db_password"
-    fi
-}
-
 check_namespace() {
     kubectl get namespace "$1" &>/dev/null
     return $?
+}
+
+deploy_dex_secret() {
+    if ! kubectl get secret oauth2-proxy-client-secret -n dex; then
+        local client_secret
+        client_secret="$(openssl rand -base64 20 | tr '+/' '-_' | tr -d '\n' | tr -d '=')"
+        kubectl create secret generic oauth2-proxy-client-secret \
+            --namespace=dex \
+            --from-literal=client-secret="$client_secret"
+        kubectl create secret generic oauth2-proxy-client-secret \
+            --namespace=konflux-ui \
+            --from-literal=client-secret="$client_secret"
+    fi
 }
 
 deploy_apps() {
@@ -62,9 +64,9 @@ deploy_apps() {
     echo "Deploying applications"
     kubectl apply -k "${ROOT}/argo-cd-apps/app-of-app-sets/${environment}"
     while true; do
-        if check_namespace "tekton-pipelines" && check_namespace "keycloak"; then
+        if check_namespace "tekton-pipelines" && check_namespace "dex" && check_namespace "konflux-ui"; then
             deploy_tekton_secret
-            deploy_keycloak_secret
+            deploy_dex_secret
             break
         else
             echo -n .

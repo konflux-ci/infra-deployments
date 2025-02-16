@@ -4,7 +4,7 @@ resources:
   - ../../dependencies/cert-manager
   - ../../dependencies/trust-manager
   - ../../dependencies/cluster-issuer
-  - ../../dependencies/keycloak
+  - ../../dependencies/dex
   - ../../dependencies/pipelines-as-code
   - ../../dependencies/tekton-config
   - ../../dependencies/tekton-operator
