@@ -10,3 +10,4 @@ resources:
   - tekton-results  
   - pipelines-as-code
   - dex
+  - namespace-lister
