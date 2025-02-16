@@ -9,4 +9,4 @@ resources:
   - tekton-config
   - tekton-results  
   - pipelines-as-code
-  - keycloak
+  - dex

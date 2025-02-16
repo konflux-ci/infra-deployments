@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: keycloak
+  name: dex
 spec:
   generators:
     - clusters:
         values:
-          sourceRoot: components/keycloak
+          sourceRoot: components/dex
           environment: staging
           clusterDir: ""
   template:
     metadata:
-      name: keycloak-{{nameNormalized}}
+      name: dex-{{nameNormalized}}
     spec:
       project: default
       source:
