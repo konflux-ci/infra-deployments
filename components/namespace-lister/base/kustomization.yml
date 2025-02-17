@@ -2,4 +2,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - https://github.com/konflux-ci/konflux-ci/konflux-ci/namespace-lister/?ref=d0c3ef025e6991f06b0cac9412f51f280661b5e1
+  - https://github.com/konflux-ci/konflux-ci/konflux-ci/namespace-lister/?ref=6a391f0da1c12680bf5a0b2cc534cdd8cfa6fcea
