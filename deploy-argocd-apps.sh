@@ -10,7 +10,6 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 main() {
     verify_permissions || exit $?
-    verify_pvc_binding
     deploy_apps "$1"
 }
 
@@ -21,13 +20,6 @@ verify_permissions() {
         echo "Log into the cluster with a user with the required privileges (e.g. kubeadmin) and retry."
         return 1
     fi
-}
-
-verify_pvc_binding(){
-    local pvc_resources="${ROOT}/argo-cd-apps/dependencies/pre-deployment-pvc-binding"
-    echo "Creating PVC from '$pvc_resources' using the cluster's default storage class"
-    kubectl apply -k "$pvc_resources"
-    echo "PVC binding successfull"
 }
 
 deploy_tekton_secret() {
