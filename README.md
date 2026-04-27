@@ -1,4 +1,4 @@
-# infra-deployments
+# **ARCHIVED** - infra-deployments
 
 ## Konflux Community Deployment via ArgoCD
 ```bash
